@@ -6,14 +6,18 @@
 class mainmenu
 {
 private:
-	bool playing;
+	bool running;
 	sf::Texture tmenu;
 	sf::RectangleShape shape;
 	sf::Text text[4];
 	sf::Font font;
+	sf::SoundBuffer buffer1;
+	sf::Sound sound1;
+
 	
 public:
 	mainmenu();
 	int run2(sf::RenderWindow &window);
+	void stop();
 };
 

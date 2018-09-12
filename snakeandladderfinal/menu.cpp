@@ -1,18 +1,22 @@
 #include"menu.h"
 
-mainmenu::mainmenu()
+mainmenu::mainmenu() //constructor
 {
-	playing = false;
+	running = true;
 }
 
 int mainmenu::run2(sf::RenderWindow &window) // function that calls mainmenu
 {
-	bool running = true;
 
 	myGame gm;
 	control c;
 
 	//loading contents
+
+	if (!buffer1.loadFromFile("Whimsical-Popsicle.ogg"))
+	{
+		std::cout << "cannot load from file";
+	}
 
 	if (!font.loadFromFile("ALGER.TTF"))
 	{
@@ -23,6 +27,9 @@ int mainmenu::run2(sf::RenderWindow &window) // function that calls mainmenu
 	{
 		std::cout << "error...";
 	}
+
+	sound1.setBuffer(buffer1);
+	sound1.setLoop(true);
 
 	shape.setTexture(&tmenu);
 	shape.setSize(sf::Vector2f(1200, 800));
@@ -46,10 +53,10 @@ int mainmenu::run2(sf::RenderWindow &window) // function that calls mainmenu
 	text[3].setString("SNAKES AND LADDER FUN GAME");
 	text[3].setStyle(sf::Text::Underlined);
 	text[3].setPosition(sf::Vector2f(50, 5));
-	text[3].setFillColor(sf::Color(17, 17, 17));
-
+	text[3].setFillColor(sf::Color(255, 218, 185));
 
 	int mouse_x1, mouse_y1;
+	sound1.play();
 
 	while (running)  //while loop begin
 	{
@@ -88,6 +95,7 @@ int mainmenu::run2(sf::RenderWindow &window) // function that calls mainmenu
 					if (mouse_x >= 450 && mouse_x <= 950 && mouse_y >= 600 && mouse_y <= 700)
 					{
 						text[2].setFillColor(sf::Color::Red);
+						sound1.stop();
 						window.close();
 						return 0;
 					}
@@ -128,4 +136,9 @@ int mainmenu::run2(sf::RenderWindow &window) // function that calls mainmenu
 
 	}//end of while loop
 	return 0;
+}
+
+void mainmenu::stop()
+{
+	sound1.stop();
 }

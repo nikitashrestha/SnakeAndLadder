@@ -1,7 +1,6 @@
 #pragma once
 #include<iostream>
-#include <TGUI/TGUI.hpp>
-
+#include<SFML\Graphics.hpp>
 class dice
 {
 private:
@@ -12,10 +11,8 @@ private:
 	sf::Texture t4;
 	sf::Texture t5;
 	sf::Texture t6;
-
 	sf::RectangleShape shape[6];
 	sf::Font font;
-	
 	sf::Text text1;
 	void initializeTexture();
 

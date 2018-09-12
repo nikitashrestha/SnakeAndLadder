@@ -1,14 +1,14 @@
 #include<iostream>
 #include"Position.h"
 
-position::position()
+position::position() //constructor
 {
 	
 	x = 0; y = 0;
 
 }
 
-position::position(int a, int b)
+position::position(int a, int b) //constructor with arguments
 {
 	x = a;
 	y = b;
@@ -36,7 +36,7 @@ void position::setdata()
 	}
 }
 
-void position::setposition(int n)
+void position::setposition(int n) //function to set cordinates for each player
 {
 	for (int i = 0; i < 10; i++)
 	{
@@ -60,13 +60,13 @@ void position::setposition(int n)
 	}
 }
 
-int position::getx()
+int position::getx() //function to get x-cordinates
 {
 	return x;
 }
 
 
-int position::gety()
+int position::gety() //function to get y- cordinates
 {
 	return y;
 }

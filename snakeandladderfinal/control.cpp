@@ -2,10 +2,10 @@
 #include"menu.h"
 #include"Game.h"
 
-int control::run(sf::RenderWindow &window)
+int control::run(sf::RenderWindow &window) //function to draw control menu 
 {
 	mainmenu m;
-	myGame mg;
+	myGame gm;
 	sf::Font font;
 	if (!font.loadFromFile("ALGER.TTF"))
 	{
@@ -18,7 +18,7 @@ int control::run(sf::RenderWindow &window)
 	}
 	
 	shape.setTexture(&ctexture);
-	shape.setSize(sf::Vector2f(window.getSize().x, window.getSize().y));
+	shape.setSize(sf::Vector2f((float)window.getSize().x,(float) window.getSize().y));
 	for (int i = 0; i<2; i++)
 	{
 		text[i].setFont(font);
@@ -70,7 +70,7 @@ int control::run(sf::RenderWindow &window)
 					if (mouse_x >= 450 && mouse_x <= 950 && mouse_y >= 600 && mouse_y <= 700)
 					{
 						text[1].setFillColor(sf::Color::Red);
-						mg.run1(window);
+						gm.run1(window);
 						return -1;
 					}
 					else if (mouse_x >= 450 && mouse_x <= 950 && mouse_y >= 490 && mouse_y <= 590)
@@ -93,6 +93,7 @@ int control::run(sf::RenderWindow &window)
 
 		}//end of event
 
+		//drawing content on windows
 		window.clear();
 		window.draw(shape);
 		for (int i = 0; i<2; i++)

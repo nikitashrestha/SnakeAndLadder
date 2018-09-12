@@ -1,7 +1,7 @@
 #include"Game.h"
 #include"menu.h"
 
-myGame::myGame()
+myGame::myGame() //constructor
 {
 	rolling = false;
 	playing = true;
@@ -38,10 +38,11 @@ int myGame::run1(sf::RenderWindow &window) //Game window
 		std::cout << "cannot load from file";
 	}
 	
+	
+	
 	p1sprite.setTexture(p1texture);
 	p2sprite.setTexture(p2texture);
 
-	sound.setBuffer(buffer);
 
 	shape[1].setTexture(&tmenu);
 	shape[1].setSize(sf::Vector2f(1200,800));
@@ -56,7 +57,8 @@ int myGame::run1(sf::RenderWindow &window) //Game window
 		text[i].setCharacterSize(40);
 	}
 	
-
+	sound.setBuffer(buffer);
+	
 	text[2].setString("PLAYER 1");
 	text[2].setPosition(sf::Vector2f(750, 200));
 
@@ -78,6 +80,8 @@ int myGame::run1(sf::RenderWindow &window) //Game window
 	player p2;
 	position po;
 	dice d;
+	
+
 
 	while (running) //Beginning of Game loop
 	{
@@ -95,6 +99,7 @@ int myGame::run1(sf::RenderWindow &window) //Game window
 
 					rolling = true;
 					display = false;
+
 					if (turn % 2 != 0)
 					{
 						text[2].setFillColor(sf::Color::Red);
@@ -107,8 +112,9 @@ int myGame::run1(sf::RenderWindow &window) //Game window
 					}
 					text1.setString("IS ROLLING");
 					text1.setPosition(sf::Vector2f(850, 500));
+					sound.setBuffer(buffer);
 					sound.play();
-					sound.setVolume(88);
+					sound.setVolume(100);
 					break;
 				}
 			}
@@ -178,7 +184,6 @@ int myGame::run1(sf::RenderWindow &window) //Game window
 								n = 1;
 								displaywinner(window,n);
 							}
-							
 							text[4].setString("PLAYER 2 TURN TO ROLL");
 							text[4].setFillColor(sf::Color::Blue);
 							}
@@ -294,7 +299,8 @@ int myGame::run1(sf::RenderWindow &window) //Game window
 	return 0;
 }
 
-int myGame::displaywinner(sf::RenderWindow &window,int x)
+
+int myGame::displaywinner(sf::RenderWindow &window,int x) //function to display winner
 {
 	if (x == 1)
 	{
@@ -364,6 +370,7 @@ int myGame::displaywinner(sf::RenderWindow &window,int x)
 					if (mousex >= 350 && mousex <= 750 && mousey >= 400 && mousey <= 500)
 					{
 						text[1].setFillColor(sf::Color::Red);
+						m.stop();
 						window.close();
 						return 0;
 					}
@@ -393,3 +400,4 @@ int myGame::displaywinner(sf::RenderWindow &window,int x)
 	
 	return 0;
 }
+

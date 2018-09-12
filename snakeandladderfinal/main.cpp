@@ -9,7 +9,7 @@
 int main()
 
 {
-	sf::RenderWindow window(sf::VideoMode(1200, 800), "MY GAME");
+	sf::RenderWindow window(sf::VideoMode(1200, 800), "MY GAME",sf::Style::Fullscreen);
 
 	mainmenu m;
 	

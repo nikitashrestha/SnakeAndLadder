@@ -31,6 +31,7 @@ private:
 	sf::SoundBuffer buffer;
 	sf::Sound sound;
 
+
 public:
 	myGame();
 	int run1(sf::RenderWindow &window);

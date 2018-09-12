@@ -2,7 +2,7 @@
 #include"initialize.h"
 #include<iostream>
 
-myboard::myboard()
+myboard::myboard() //costructor
 {
 	initializeBoard();
 	initializeText();
@@ -10,11 +10,11 @@ myboard::myboard()
 }
 
 
-void myboard::Render(sf::RenderWindow &window)const
+void myboard::Render(sf::RenderWindow &window)const //draws board on window
 {
 	
 
-	for (int i = 0; i < 10; i++)		//draws board on screen
+	for (int i = 0; i < 10; i++)		//for loop begin
 	{
 		if ((i + 2) % 2 == 0)
 		{
@@ -34,10 +34,11 @@ void myboard::Render(sf::RenderWindow &window)const
 
 			}
 		}
-	}
+	} //for loop ends
 	
 	window.draw(shape);
-	for (int i = 0; i < 10; i++)
+
+	for (int i = 0; i < 10; i++) //for loop begins
 	{
 		if ((i + 2) % 2 == 0)
 		{
@@ -57,7 +58,7 @@ void myboard::Render(sf::RenderWindow &window)const
 
 			}
 		}
-	}
+	} //for loop ends
 
 }
 
@@ -118,7 +119,6 @@ void myboard::initializeBoard()			//initialize board contents
 			}
 		}
 	}
-	sf::Vector2u bszize = btexture.getSize();
 	shape.setTexture(&btexture);
 	shape.setSize(sf::Vector2f(623, 640));
 	shape.setPosition(sf::Vector2f(45, 75));
